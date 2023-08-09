@@ -28,9 +28,19 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
  }
  
  function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-    
- }
- 
+    if (
+        validateInput(pilot) === "Empty" ||
+        validateInput(copilot) === "Empty" ||
+        validateInput(fuelLevel) !== "Is a Number" ||
+        validateInput(cargoLevel) !== "Is a Number"
+    ) {
+        alert("All fields are required and must have valid inputs!");
+     } else {
+        
+     }
+   
+   
+}
  async function myFetch() {
      let planetsReturned;
  
