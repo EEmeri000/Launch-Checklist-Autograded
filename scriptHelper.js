@@ -6,7 +6,7 @@ require('cross-fetch/polyfill');
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
     // Here is the HTML formatting for our mission target div.
     let missionTarget = document.getElementById("missionTarget");
-    /* missionTarget.innerHTML =
+    missionTarget.innerHTML = `
                  <h2>Mission Destination</h2>
                  <ol>
                      <li>Name: ${name}</li>
@@ -16,7 +16,8 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
                      <li>Number of Moons: ${moons}</li>
                  </ol>
                  <img src="${imageUrl}" alt="Mission Destination Image">
-    */
+                `;
+                 
  }
  
  function validateInput(testInput) {
