@@ -15,7 +15,7 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
                      <li>Distance from Earth: ${distance}</li>
                      <li>Number of Moons: ${moons}</li>
                  </ol>
-                 <img src="${imageUrl}" alt="Mission Destination Image">
+                 <img src="${imageUrl}">
                 `;
                  
  }
@@ -36,7 +36,7 @@ let copilotStatus = document.getElementById("copilotStatus");
 let fuelStatus = document.getElementById("fuelStatus");
 let cargoStatus = document.getElementById("cargoStatus");
 let h2 = document.getElementById("launchStatus")
-let list = document.getElementById("faultyItems")
+let faultyItems = document.getElementById("faultyItems")
     if (
         validateInput(pilot) === "Empty" ||
         validateInput(copilot) === "Empty" ||
@@ -49,19 +49,19 @@ let list = document.getElementById("faultyItems")
         copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
      
      if (fuelLevel < 10000) {
-        list.style.visibility = 'visible';
+        faultyItems.style.visibility = 'visible';
         h2.style.color = 'red';
         h2.innerHTML = 'Shuttle Not Ready for Launch';
         fuelStatus.innerHTML = 'Fuel level too low for launch';
     } else if (cargoLevel > 10000) {
-        list.style.visibility = 'visible';
+        faultyItems.style.visibility = 'visible';
         h2.style.color = 'red';
         h2.innerHTML = 'Shuttle Not Ready for Launch';
         fuelStatus.innerHTML = "Fuel level high enough for launch";
         cargoStatus.innerHTML = 'Cargo mass too heavy for launch';
         
     } else {
-        list.style.visibility = 'visible';
+        faultyItems.style.visibility = 'visible';
         h2.style.color = 'green';
         h2.innerHTML = 'Shuttle is Ready for Launch';
         fuelStatus.innerHTML = "Fuel level high enough for launch";
@@ -80,6 +80,8 @@ let list = document.getElementById("faultyItems")
  }
  
  function pickPlanet(planets) {
+    const randomIndex = Math.floor(Math.random() * planets.length);
+    return planets[randomIndex];
  }
  
  module.exports.addDestinationInfo = addDestinationInfo;
